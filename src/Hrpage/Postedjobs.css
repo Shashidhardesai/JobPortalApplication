@@ -1,0 +1,40 @@
+.body{
+    background-color: aliceblue;
+}
+  
+  .job-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .job-list-container h1 {
+    text-align: center;
+    padding-top: 5px;
+  }
+  
+  .job-list {
+    margin-top: 20px;
+  }
+  
+  .job-item {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .job-item h2 {
+    margin-bottom: 5px;
+  }
+  
+  .job-item p {
+    margin-bottom: 5px;
+  }
+ .delete-button{
+    height:22px;
+    width: 80px;
+    border-radius: 5px;
+ }
+ .delete-button:hover{
+    background-color: beige;
+ }
+  

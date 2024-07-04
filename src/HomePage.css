@@ -1,0 +1,48 @@
+
+.body-main{
+    background-image: url("job3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+.hhead{
+    height: 420px;
+    padding-left: 30px;
+    padding-top:250px ;
+}
+.hhead h1{
+    color:rgb(239, 239, 240);
+}
+.buttons{
+ padding-left: 60px;
+ padding-top:40px ;
+ display: flex;
+ gap:20px;
+}
+.division2{
+    margin-top: 250px;
+    margin-left: 350px;
+    color:aliceblue;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    border-radius: 10px;
+    
+
+}
+
+.button1{
+    height: 30px;
+    width: 150px;
+    background-color:brown;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: large;
+
+}
+.button1:hover{
+    background-color: rgb(208, 10, 10);
+}

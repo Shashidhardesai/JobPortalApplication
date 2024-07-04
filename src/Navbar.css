@@ -1,0 +1,39 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.image-11{
+    height: 70px;
+    width: 220px;
+}
+.mid-div{
+    display: flex;
+    gap:20px;
+    margin-top: 20px;
+}
+.mid-div-p{
+    color: black;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 22px;
+    border: none;
+    font-weight: bold;
+    background-color:whitesmoke;
+}
+.mid-div-p:hover{
+    color: darkgray;
+}
+.login-btns{
+   border: none;
+   background-color: whitesmoke;
+   color: red;
+   font-weight: bold;
+   font-size: large;
+   margin-top: 15px;
+   margin-right: 15px;
+
+}
+.login-btns:hover{
+    border:2px solid red;
+    background-color: white;
+    border-radius: 5px;
+}
