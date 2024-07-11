@@ -38,8 +38,6 @@ const FindJobs = () => {
     setSubmissionStatus(true);
     setTimeout(() => setSubmissionStatus(false), 3000);
   };
-  
-  
 
   const handleCloseClick = () => {
     setSelectedJob(null);
