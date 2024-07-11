@@ -1,18 +1,30 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+.app {
+    text-align: center;
+    padding: 20px;
+}
+
 .main-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    /* background-color: #333; */
     color: white;
     height: 10vh;
+    background-color:whitesmoke;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.5s ease-out;
 }
+
 .image-1 {
-    height: 70px;
+    height: 60px;
     width: 220px;
-}
-.HrLine{
-    border-color: rgb(49, 8, 8);
 }
 
 .middle-div {
@@ -28,11 +40,13 @@
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 10px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .middle-div-p:hover {
     background-color: #444;
+    transform: scale(1.05);
 }
 
 .navbar-btn .logout-button {
@@ -43,6 +57,7 @@
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .navbar-btn .logout-button:hover {
@@ -55,14 +70,6 @@
     background-color: #ddd;
     margin: 0;
 }
-
-/* .division-sec {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 85vh;
-    background-color: #333;
-} */
 
 .division-2 {
     background-color: whitesmoke;
@@ -79,7 +86,7 @@
     color: #333;
     text-shadow: 2px 2px 2px rgba(210, 206, 206, 0.2);
     margin: 0;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .division-2-h3 {
@@ -87,10 +94,41 @@
     color: #f30606;
     text-shadow: 2px 2px 2px rgba(226, 223, 223, 0.1);
     margin-top: 20px;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-/* @keyframes fadeIn {
+.division-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    animation: fadeInBackground 2s ease-in-out infinite alternate;
+}
+
+.body-body {
+   background-color: darkgrey;
+}
+
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInBackground {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -99,39 +137,155 @@
         opacity: 1;
         transform: translateY(0);
     }
-} */
-.division-sec {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 85vh;
-    /* background: linear-gradient(to right, #d21616, #cb6565); 
-    animation: fadeInBackground 2s ease-in-out infinite alternate;  */
 }
 
-/* @keyframes fadeInBackground {
-    from {
-        opacity: 0.8;
+
+@media (max-width: 768px) {
+    .main-navbar {
+        flex-direction: column;
+        column-gap: 18px;
+        height: 25vh;
+        text-align: center;
     }
-    to {
-        opacity: 1;
+
+    .image-1 {
+        height: 50px;
+        width: 160px;
     }
-} */
-.body-body {
-    background: linear-gradient(45deg, #6e45e2, #88d3ce, #ff3cac);
-    background-size: 400% 400%;
-    animation: gradientBackground 15s ease infinite;
+
+    .middle-div {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 10px;
+    }
+
+    .middle-div-p {
+        padding: 8px 16px;
+    }
+
+    .navbar-btn .logout-button {
+        padding: 8px 16px;
+    }
+
+    .division-sec {
+        margin-top: 25vh;
+        height: auto;
+        padding: 20px;
+        
+    }
+
+    .division-2 {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .division-2-h2 {
+        font-size: 1.2em;
+    }
+
+    .division-2-h3 {
+        font-size: 1em;
+    }
+    .navbar-btn .logout-button{
+        margin-top: 10px;
+    }
+    .body-body {
+        height: 100vh;
+     }
 }
 
-@keyframes gradientBackground {
-    0% {
-        background-position: 0% 50%;
+/* For mobile devices */
+@media (max-width: 576px) {
+    .main-navbar {
+        padding: 0.5rem;
+        flex-direction: column;
+        column-gap: 10px;
     }
-    50% {
-        background-position: 100% 50%;
+
+    .image-1 {
+        height: 50px;
+        width: 140px;
     }
-    100% {
-        background-position: 0% 50%;
+
+    .middle-div {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 8px;
+    }
+
+    .middle-div-p {
+        padding: 6px 12px;
+        font-size: 1em;
+    }
+
+    .navbar-btn .logout-button {
+        padding: 6px 12px;
+        font-size: 1em;
+    }
+
+    .division-sec {
+        height: auto;
+        padding: 10px;
+    }
+
+    .division-2 {
+        max-width: 95%;
+        padding: 10px;
+    }
+
+    .division-2-h2 {
+        font-size: 1em;
+    }
+
+    .division-2-h3 {
+        font-size: 0.9em;
     }
 }
+@media (max-width: 667px) {
+    .main-navbar {
+        padding: 0.5rem;
+        height: 25vh;
+    }
 
+    .image-1 {
+        height: 40px;
+        width: 140px;
+    }
+
+    .middle-div {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 8px;
+    }
+
+    .middle-div-p {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .navbar-btn .logout-button {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .division-sec {
+        height: auto;
+        padding: 10px;
+    }
+
+    .division-2 {
+        max-width: 95%;
+        padding: 10px;
+    }
+
+    .division-2-h2 {
+        font-size: 1em;
+    }
+
+    .division-2-h3 {
+        font-size: 0.9em;
+    }
+    .navbar-btn .logout-button{
+        margin-top: 5px;
+    }
+}

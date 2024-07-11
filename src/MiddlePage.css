@@ -1,4 +1,4 @@
-.container-1 {
+.middle-container {
     background-color: rgb(244, 246, 245);
     align-content: center;
     text-align: center;
@@ -9,10 +9,12 @@
 
 .head-1 {
     font-size: 45px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
     animation: fadeInDown 1s ease-in-out;
 }
 
-.container-div-1 {
+.container-div {
     display: flex;
     justify-content: center;
     gap: 100px;
@@ -47,7 +49,7 @@
 
 .M-div1 button:hover {
     border: 2px solid rgb(4, 108, 56);
-    background-color: rgb(2, 164, 80);
+    background-color: rgb(31, 120, 74);
     transform: translateY(-5px);
 }
 
@@ -70,5 +72,45 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 978px) {
+
+    .container-div {
+        flex-wrap: wrap;
+        gap: 50px;
+        height:auto;
+    }
+    .head-1 {
+        font-size: 30px;
+        margin-top: 50px;
+    }
+    .M-div1 {
+        flex: 1 1 100%; 
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .M-div1 button {
+        width: 60%; 
+    }
+    .image {
+        width: 100px; 
+        height: 20vh;
+    }
+}
+
+@media screen and (max-width: 748px) {
+    .head-1 {
+        font-size: 24px;
+        margin-top: 25px; 
+    }
+    .container-div {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 10px;
+    }
+    .image {
+        width: 100px; 
     }
 }

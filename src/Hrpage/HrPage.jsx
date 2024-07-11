@@ -1,8 +1,14 @@
 import React from 'react'
 import './Hrpage.css'
 import { Link } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
 const HrPage = () => {
+  const navigate=useNavigate();
+
+  const accLogout=()=>{
+    navigate('/Login')
+  }
+
   return (
     <>
     <div className='body-body'>
@@ -10,11 +16,11 @@ const HrPage = () => {
         <img className="image-1" src="Immen.png" alt="noimg" />
         <div className='middle-div'>
            <Link to="/Postedjobs" ><button className='middle-div-p'>Posted Jobs</button></Link>
-           <Link  to="/StudentResume"><button className='middle-div-p'>Student Applicaton</button></Link>
+           <Link  to="/UploadResume"><button className='middle-div-p'>Student Applicaton</button></Link>
            <Link to="/PostJobs"><button className='middle-div-p'>Post Jobs</button></Link>
         </div>
         <div className="navbar-btn">
-          <Link to="/HrLogin">  <button className="logout-button">Log out</button></Link>
+          <Link to="/HrLogin">  <button className="logout-button" onClick={accLogout}>Log out</button></Link>
         </div>
     </nav>
     <hr className='HrLine' />
@@ -31,6 +37,7 @@ const HrPage = () => {
           with General Electric and AlliedSignal</h3>
     </div>
     </div>
+    
     </div>
     </>
   )

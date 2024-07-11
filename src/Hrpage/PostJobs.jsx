@@ -87,7 +87,9 @@ const PostJobs = () => {
           </label>
           <label>
             Job Description:
-            <input type="text" name="jobDescription" 
+            <textarea className='textArea' type="text" name="jobDescription" 
+            rows="4"
+            cols="40"
             value={formData.jobDescription} 
             onChange={handleChange} 
             style={{ width: '100%', padding: '10px', boxSizing: 'border-box', minHeight: '100px' }}

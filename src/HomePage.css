@@ -1,48 +1,102 @@
-
-.body-main{
+.body-main {
     background-image: url("job3.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
+    background-position: center; 
     display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
 }
 
-.hhead{
-    height: 420px;
+.home-head {
     padding-left: 30px;
-    padding-top:250px ;
+    padding-top: 20px;
 }
-.hhead h1{
-    color:rgb(239, 239, 240);
+
+.home-head h1 {
+    color: rgb(239, 239, 240);
+    font-family: 'Times New Roman', Times, serif;
+    animation: none;
+    transition: none;
 }
-.buttons{
- padding-left: 60px;
- padding-top:40px ;
- display: flex;
- gap:20px;
+
+.buttons {
+    padding-left: 60px;
+    padding-top: 40px;
+    display: flex;
+    gap: 20px;
 }
-.division2{
-    margin-top: 250px;
+
+.division2 {
+    margin-top: 40px;
     margin-left: 350px;
-    color:aliceblue;
+    color: aliceblue;
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     border-radius: 10px;
-    
-
 }
 
-.button1{
+.button1 {
     height: 30px;
     width: 150px;
-    background-color:brown;
+    background-color:rgb(208, 10, 10);
     border: none;
     border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: large;
-
 }
-.button1:hover{
-    background-color: rgb(208, 10, 10);
+
+.button1:hover {
+    background-color: brown;
+}
+
+@media screen and (max-width: 970px) {
+    .body-main {
+        height: 100vh; 
+    }
+
+    .home-head {
+        padding-left: 20px;
+        padding-top: 150px;
+    }
+    .home-head h1{
+        margin-left: 20px;
+    }
+
+    .buttons {
+        padding-left: 30px;
+        padding-top: 20px;
+    }
+
+    .division2 {
+        margin-top: 150px;
+        margin-left: 150px;
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .body-main {
+        height: 100vh; 
+    }
+    .home-head {
+        padding-left: 10px;
+        padding-top: 100px;
+    }
+
+    .buttons {
+        padding-left: 20px;
+        padding-top: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .division2 {
+        margin-top: 100px;
+        margin-left: 50px;
+        font-size: 20px;
+    }
 }

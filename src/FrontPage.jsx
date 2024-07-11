@@ -7,11 +7,11 @@ const FrontPage=()=> {
   return (
     <>
      <div>
-     <Navbar/>
-    <hr />
+             <Navbar/>
+             {/* <hr /> */}
      </div >
      <div className='div-2'>
-        <p className='div-2-p'>Your journey starts here</p>
+        <p className='div-2-p2'>Your journey starts here</p>
         <h1 className='div-2-h1'>Transforming Careers <br/>and Streamlining Hiring</h1>
         <p className='div-2-p2'> Discover thousands of job listing tailored to your skills,interest,and<br/>
         career goals.Join our community of professionals and take the next <br/> step toward success.</p>
@@ -22,13 +22,12 @@ const FrontPage=()=> {
         <br/>incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam.
       </p>
         <div className='div-2-1'>
-          <img className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZpxxOwmSh275knZ3GIVX7_bagb6boaxfAhw3GXuW9285F6K_HmzqsJYMzk3o0mLmCxyA&usqp=CAU" alt="no img" />
-          <img className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZpxxOwmSh275knZ3GIVX7_bagb6boaxfAhw3GXuW9285F6K_HmzqsJYMzk3o0mLmCxyA&usqp=CAU" alt="no img" />
-          <img className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZpxxOwmSh275knZ3GIVX7_bagb6boaxfAhw3GXuW9285F6K_HmzqsJYMzk3o0mLmCxyA&usqp=CAU" alt="no img" />
-          <img className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZpxxOwmSh275knZ3GIVX7_bagb6boaxfAhw3GXuW9285F6K_HmzqsJYMzk3o0mLmCxyA&usqp=CAU" alt="no img" />
-          <img className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZpxxOwmSh275knZ3GIVX7_bagb6boaxfAhw3GXuW9285F6K_HmzqsJYMzk3o0mLmCxyA&usqp=CAU" alt="no img" />
-          <img className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZpxxOwmSh275knZ3GIVX7_bagb6boaxfAhw3GXuW9285F6K_HmzqsJYMzk3o0mLmCxyA&usqp=CAU" alt="no img" />
-     
+          <img className="img" src="micro.png" alt="no img" />
+          <img className="img" src="micro.png" alt="no img" />
+          <img className="img" src="micro.png" alt="no img" />
+          <img className="img" src="micro.png" alt="no img" />
+          <img className="img" src="micro.png" alt="no img" />
+          <img className="img" src="micro.png" alt="no img" />
         </div>
     </div>
     </>

@@ -15,7 +15,7 @@ const FindJobs = () => {
 
   const fetchJobDetails = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/HrPostJobDetails');
+      const response = await axios.get('http://localhost:5000/hrPostJobDetails');
       setJobDetails(response.data);
     } catch (err) {
       console.error('Error fetching job details:', err);
@@ -30,13 +30,25 @@ const FindJobs = () => {
     setFile(e.target.files[0]);
   };
 
-  const handleSubmitApplication = () => {
-    console.log('Submitted:', selectedJob, file);
+  const handleSubmitApplication = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('pdfFile', file);
 
-    setSelectedJob(null);
-    setFile(null);
-    setSubmissionStatus(true);
-    setTimeout(() => setSubmissionStatus(false), 3000);
+      const response = await axios.post('http://localhost:5000/uploadPdf', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+    );
+
+      console.log('File upload response:', response.data);
+      setSubmissionStatus(true);
+      setTimeout(() => setSubmissionStatus(false), 3000);
+      setSelectedJob(null);
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
   };
 
   const handleCloseClick = () => {
@@ -46,19 +58,21 @@ const FindJobs = () => {
   return (
     <>
       <Navbar />
-      <hr />
+      <div className='find-div-1'>
       {jobDetails.map((job) => (
-        <div  className='main-div'>
-          <div key={job._id} className='div-div'>
-            <div className='div1'>
-              <h2>Openings for</h2>
-            </div>
+       
+        <div key={job._id} className='main-div-1'>
+          
+          <div className='div-div'>
+                     <div className='div1'>
+                        <h2>Openings for</h2>
+                     </div>
             <hr />
             <div className='div-div-div'>
               <div className='div-div-1'>
                 <h3>Looking For:</h3>
                 <p>{job.jobRole}</p>
-                <h3>Salary:</h3>
+                <h3>Salary (year):</h3>
                 <p>{job.package}lpa</p>
               </div>
               <div className='div-div-2'>
@@ -68,19 +82,23 @@ const FindJobs = () => {
                 <p>{job.qualification}</p>
               </div>
             </div>
-            <button
-              className='button123'
-              onClick={() => handleApplyClick(job)}
-            >
+            
+            <button className='button123' onClick={() => handleApplyClick(job)}>
               Easy Apply
             </button>
           </div>
+
         </div>
+        
       ))}
+      </div>
 
       {selectedJob && (
+        <div className='pop-up-div'>
         <div className='larger-div'>
-          <button className='close-button' onClick={handleCloseClick}>X</button>
+          <button className='close-button' onClick={handleCloseClick}>
+            X
+          </button>
           <h2>Applying for {selectedJob.jobRole}</h2>
           <p>
             <strong>Work mode:</strong> {selectedJob.workMode}
@@ -95,7 +113,10 @@ const FindJobs = () => {
             <strong>Job description:</strong> {selectedJob.jobDescription}
           </p>
           <input type='file' onChange={handleFileChange} />
-          <button className="submit-app" onClick={handleSubmitApplication}>Submit Application</button>
+          <button className='submit-app' onClick={handleSubmitApplication}>
+            Submit Application
+          </button>
+        </div>
         </div>
       )}
 

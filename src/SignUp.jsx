@@ -1,47 +1,43 @@
 import React, { useState } from 'react';
 import './SignUp.css'
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-const SignUp= () => {
-  const [firstname, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [password, setPassword] = useState('');
+const SignUp = () => {
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: ''
+  });
   const [errors, setErrors] = useState({});
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-  const handleLastnameChange = (e) => {
-    setLastname(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
   const validateForm = () => {
     let errors = {};
     let isValid = true;
 
-    if (!firstname.match(/^[a-zA-Z]+$/)) {
+    if (!formData.firstname.match(/^[a-zA-Z]+$/)) {
       errors.firstname = 'should contain only alphabets';
       isValid = false;
     }
-    if (!lastname.match(/^[a-zA-Z]+$/)) {
+    if (!formData.lastname.match(/^[a-zA-Z]+$/)) {
       errors.lastname = 'should contain only alphabets';
       isValid = false;
     }
    
-    if (!email.toLowerCase().endsWith('@gmail.com')) {
+    if (!formData.email.toLowerCase().endsWith('@gmail.com')) {
       errors.email = 'Invalid email (must end with @gmail.com)';
       isValid = false;
     }
 
-    if (!password.match(/[A-Z]/)) {
+    if (!formData.password.match(/[A-Z]/)) {
       errors.password = 'Password should contain at least one uppercase letter';
       isValid = false;
     }
@@ -50,31 +46,43 @@ const SignUp= () => {
     return isValid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (validateForm()) {
-      setUsername('');
-      setLastname('')
-      setPassword('');
-      setEmail('')
+      try {
+        const response = await axios.post('http://localhost:5000/signup', formData);
+        
+        if (response.status === 201) {
+          setFormData({
+            firstname: '',
+            lastname: '',
+            email: '',
+            password: ''
+          });
+          console.log('Signup successful!');
+        } else {
+          console.error('Signup failed:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
     }
   };
+  
 
   return (
-    <>
     <div className='signup-container'>
-     
       <form onSubmit={handleSubmit}>
-      <h1 className='head'>Signup Form</h1>
+        <h1 className='head'>Signup Form</h1>
         <div className="inputt">
-          <label htmlFor="username" className="labe">Firstname:</label><br />
+          <label htmlFor="firstname" className="labe">Firstname:</label><br />
           <input
             type="text"
             id="firstname"
             name="firstname"
-            value={firstname}
-            onChange={handleUsernameChange}
+            value={formData.firstname}
+            onChange={handleChange}
             placeholder="Enter the mail"
           />
           {errors.firstname && <p className="error">{errors.firstname}</p>}
@@ -85,8 +93,8 @@ const SignUp= () => {
             type="text"
             id="lastname"
             name="lastname"
-            value={lastname}
-            onChange={handleLastnameChange}
+            value={formData.lastname}
+            onChange={handleChange}
             placeholder="Enter lname"
           />
           {errors.lastname && <p className="error">{errors.lastname}</p>}
@@ -97,8 +105,8 @@ const SignUp= () => {
             type="text"
             id="email"
             name="email"
-            value={email}
-            onChange={handleEmailChange}
+            value={formData.email}
+            onChange={handleChange}
             placeholder="Enter email"
           />
           {errors.email && <p className="error">{errors.email}</p>}
@@ -109,15 +117,16 @@ const SignUp= () => {
             type="password"
             id="password"
             name="password"
-            value={password}
-            onChange={handlePasswordChange}
+            value={formData.password}
+            onChange={handleChange}
           />
           {errors.password && <p className="error">{errors.password}</p>}
         </div>
-      <Link to="/HomePage"><button type="submit" className="Button">Sign up</button></Link> 
+       {/* <Link to="/HomePage"> */}
+       <button type="submit" className="Button">Sign up</button>
+       {/* </Link>  */}
       </form>
     </div>
-    </>
   );
 };
 
